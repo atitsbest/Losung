@@ -81,8 +81,8 @@
 	//		 Inhalt sichtbar. Damit das nicht passiert, erzeugen wir immer zwei WebViews, jeweils rechts
 	//		 und links die (noch) nicht sichtbar sind.
 	CGRect visibleBounds = pagingScrollView.bounds; // Alle 356 Tage.
-	int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds)) - 1;
-	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds)) + 1;
+	int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
 	
 	// Sicher gehen dass wir auf keiner Seite über die Grenzen hinausschießen.
 	firstNeededPageIndex = MAX(0, firstNeededPageIndex);
@@ -128,7 +128,7 @@
 											   inUnit:NSYearCalendarUnit 
 											  forDate:[NSDate date]] - 1;
 	[pagingScrollView setContentOffset:CGPointMake(CGRectGetWidth(pagingScrollViewFrame) * dayOfYear, 0) 
-							  animated:NO];
+							  animated:YES];
 }
 
 /**

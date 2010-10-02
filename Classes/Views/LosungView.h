@@ -10,10 +10,18 @@
 
 @class Losung;
 
-@interface LosungView : UIView {
+@interface LosungView : UIScrollView {
 	NSInteger index;
-	
+
+	// Controls.
 	UIWebView *webView;
+
+	@protected
+	UILabel *labelWeekday;
+	UILabel *labelText1; 
+	UILabel *labelStelle1; 
+	UILabel *labelText2; 
+	UILabel *labelStelle2; 
 }
 
 - (void)configureForIndex:(NSInteger)inIndex htmlTemplate:(NSString*)htmlTemplate;
