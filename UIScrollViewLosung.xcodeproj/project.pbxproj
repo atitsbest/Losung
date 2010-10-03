@@ -19,6 +19,8 @@
 		6A1553A411F35136001B0B3E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1553A311F35136001B0B3E /* libsqlite3.dylib */; };
 		6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */; };
 		6A15540D11F36139001B0B3E /* ApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A15540C11F36139001B0B3E /* ApplicationContext.m */; };
+		6A3CC6B21257A27F00CFA35B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3CC6B01257A27F00CFA35B /* icon.png */; };
+		6A3CC6B31257A27F00CFA35B /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3CC6B11257A27F00CFA35B /* iTunesArtwork.png */; };
 		6A480044124F357A00BF6BF6 /* LosungView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A480043124F357A00BF6BF6 /* LosungView.m */; };
 		6A48FED011FCBF1000BF6BF6 /* losung.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A48FECF11FCBF1000BF6BF6 /* losung.html */; };
 		6AD79BEF12510EA90000067B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79BEE12510EA90000067B /* Default.png */; };
@@ -44,6 +46,8 @@
 		6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = losungen.sqlite3; sourceTree = "<group>"; };
 		6A15540B11F36139001B0B3E /* ApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationContext.h; sourceTree = "<group>"; };
 		6A15540C11F36139001B0B3E /* ApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationContext.m; sourceTree = "<group>"; };
+		6A3CC6B01257A27F00CFA35B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		6A3CC6B11257A27F00CFA35B /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		6A480042124F357A00BF6BF6 /* LosungView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LosungView.h; path = Views/LosungView.h; sourceTree = "<group>"; };
 		6A480043124F357A00BF6BF6 /* LosungView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LosungView.m; path = Views/LosungView.m; sourceTree = "<group>"; };
 		6A48FECF11FCBF1000BF6BF6 /* losung.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = losung.html; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A3CC6B01257A27F00CFA35B /* icon.png */,
+				6A3CC6B11257A27F00CFA35B /* iTunesArtwork.png */,
 				6AD79BEE12510EA90000067B /* Default.png */,
 				6A48FECF11FCBF1000BF6BF6 /* losung.html */,
 				6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */,
@@ -214,6 +220,8 @@
 				6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */,
 				6A48FED011FCBF1000BF6BF6 /* losung.html in Resources */,
 				6AD79BEF12510EA90000067B /* Default.png in Resources */,
+				6A3CC6B21257A27F00CFA35B /* icon.png in Resources */,
+				6A3CC6B31257A27F00CFA35B /* iTunesArtwork.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

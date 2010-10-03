@@ -14,10 +14,9 @@
 	NSInteger index;
 
 	// Controls.
-	UIWebView *webView;
-
 	@protected
 	UILabel *labelWeekday;
+	UILabel *labelDatum;
 	UILabel *labelText1; 
 	UILabel *labelStelle1; 
 	UILabel *labelText2; 
@@ -25,6 +24,7 @@
 }
 
 - (void)configureForIndex:(NSInteger)inIndex htmlTemplate:(NSString*)htmlTemplate;
+- (BOOL)isSameDay:(NSDate*)date1 likeDay:(NSDate*)date2;
 
 @property (nonatomic, assign) NSInteger index;
 

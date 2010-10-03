@@ -29,28 +29,25 @@ static UIFont *textFont = nil;
 - (id)init {
     if ((self = [super init])) {
         // Fonts.
-		if (weekdayFont == nil) { weekdayFont = [UIFont fontWithName:@"Helvetica Neue" size:200]; }
-		if (stelleFont == nil) { stelleFont = [UIFont fontWithName:@"Helvetica Neue" size:24]; }
-		if (textFont == nil) { textFont = [UIFont fontWithName:@"Georgia" size:25]; }
+		float scale = 2;
+		if (weekdayFont == nil) { weekdayFont = [UIFont fontWithName:@"Helvetica Neue" size:42*scale*2]; }
+		if (stelleFont == nil) { stelleFont = [UIFont fontWithName:@"Helvetica Neue" size:11*scale]; }
+		if (textFont == nil) { textFont = [UIFont fontWithName:@"Georgia" size:11*scale]; }
 
 		// Labels.
 		labelWeekday = [[UILabel alloc] init];
+		labelDatum = [[UILabel alloc] init];
 		labelText1 = [[UILabel alloc] init]; 
 		labelStelle1 = [[UILabel alloc] init]; 
 		labelText2 = [[UILabel alloc] init]; 
 		labelStelle2 = [[UILabel alloc] init]; 
 
 		[self addSubview:labelWeekday];
+		[self addSubview:labelDatum];
 		[self addSubview:labelText1];
 		[self addSubview:labelText2];
 		[self addSubview:labelStelle1];
 		[self addSubview:labelStelle2];
-						
-		// Initialization code
-		webView = [[UIWebView alloc] init];
-		webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight); 
-		webView.backgroundColor = [UIColor whiteColor];
-		//[self addSubview:webView];
 	}
     return self;
 }
@@ -78,17 +75,31 @@ static UIFont *textFont = nil;
 													   timeStyle:NSDateFormatterNoStyle];
 	weekday = [[weekday substringToIndex:2] uppercaseString];
 	
-	NSInteger height = 0;
+	NSInteger height = -70;
 	NSInteger width = pagingScrollViewFrame.size.width - (2*10);
+	UIColor *color = [self isSameDay:losung.datum likeDay:[NSDate date]] 
+		? [UIColor colorWithRed:0.8f green:0 blue:0 alpha:1.0f]
+		: UIColorFromRGB(0xD8D8D8);
 	
 	// WOCHENTAG
 	CGSize weekdaySize = [weekday sizeWithFont:weekdayFont];
-	labelWeekday.frame = CGRectMake(-5, -90, weekdaySize.width, weekdaySize.height);
+	labelWeekday.frame = CGRectMake(0, height, weekdaySize.width, weekdaySize.height);
 	labelWeekday.font = weekdayFont;
-	labelWeekday.textColor = UIColorFromRGB(0xD8D8D8);
+	labelWeekday.textAlignment = UITextAlignmentLeft;
+	labelWeekday.textColor = color;
 	labelWeekday.text = weekday;
+	height += weekdaySize.height - 30;
 
-	height = weekdaySize.height - 90;
+	// DATUM
+	NSString *datumText = [NSDateFormatter localizedStringFromDate:losung.datum 
+														 dateStyle:NSDateFormatterLongStyle 
+														 timeStyle:NSDateFormatterNoStyle];
+	CGSize datumSize = [datumText sizeWithFont:stelleFont];
+	labelDatum.frame = CGRectMake(10, height, datumSize.width, datumSize.height);
+	labelDatum.font = stelleFont;
+	labelDatum.textColor = color;
+	labelDatum.text = datumText;
+	height += datumSize.height * 1.5f;
 	
 	// TEXT1
 	CGSize text1Size = [losung.text1 sizeWithFont:textFont 
@@ -105,9 +116,9 @@ static UIFont *textFont = nil;
 	CGSize stelle1Size = [losung.stelle1 sizeWithFont:stelleFont]; 
 	labelStelle1.frame = CGRectMake(10, height, stelle1Size.width, stelle1Size.height); 
 	labelStelle1.font = stelleFont;
-	labelStelle1.textColor = UIColorFromRGB(0xD8D8D8);
+	labelStelle1.textColor = color;
 	labelStelle1.text = losung.stelle1;
-	height += stelle1Size.height * 2;
+	height += stelle1Size.height * 1.5f;
 	
 	// TEXT2
 	CGSize text2Size = [losung.text2 sizeWithFont:textFont 
@@ -124,19 +135,31 @@ static UIFont *textFont = nil;
 	CGSize stelle2Size = [losung.stelle2 sizeWithFont:stelleFont]; 
 	labelStelle2.frame = CGRectMake(10, height, stelle2Size.width, stelle2Size.height); 
 	labelStelle2.font = stelleFont;
-	labelStelle2.textColor = UIColorFromRGB(0xD8D8D8);
+	labelStelle2.textColor = color;
 	labelStelle2.text = losung.stelle2;
-	height += stelle2Size.height * 2;
+	height += stelle2Size.height * 1.5f;
 	
 	self.contentSize = CGSizeMake(frame.size.width, height);
 	self.directionalLockEnabled = YES;
 	self.bounces = YES;
 }
+	 
+- (BOOL)isSameDay:(NSDate*)date1 likeDay:(NSDate*)date2 {
+	 NSCalendar* calendar = [NSCalendar currentCalendar];
+	 
+	 unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+	 NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+	 NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+	 
+	 return [comp1 day]   == [comp2 day] &&
+	 [comp1 month] == [comp2 month] &&
+	 [comp1 year]  == [comp2 year];
+ }
 
 
 - (void)dealloc {
-	[webView release];
 	[labelWeekday release];
+	[labelDatum release];
 	[labelText1 release];
 	[labelText2 release];
 	[labelStelle1 release];
