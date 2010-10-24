@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="3"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -98,7 +98,7 @@
 							<object class="IBUILabel" id="807923195">
 								<reference key="NSNextResponder" ref="372860669"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{17, 168}, {277, 22}}</string>
+								<string key="NSFrame">{{17, 168}, {277, 23}}</string>
 								<reference key="NSSuperview" ref="372860669"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -106,9 +106,9 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Stelle1</string>
-								<object class="NSFont" key="IBUIFont" id="383511968">
+								<object class="NSFont" key="IBUIFont" id="537372502">
 									<string key="NSName">HelveticaNeue</string>
-									<double key="NSSize">17</double>
+									<double key="NSSize">18</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<object class="NSColor" key="IBUITextColor">
@@ -122,7 +122,7 @@
 							<object class="IBUILabel" id="407717786">
 								<reference key="NSNextResponder" ref="372860669"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{14, 291}, {277, 22}}</string>
+								<string key="NSFrame">{{14, 291}, {277, 23}}</string>
 								<reference key="NSSuperview" ref="372860669"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -130,7 +130,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Stelle2</string>
-								<reference key="IBUIFont" ref="383511968"/>
+								<reference key="IBUIFont" ref="537372502"/>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC44NDcwNTg4MjM1IDAuODQ3MDU4ODIzNSAwLjg0NzA1ODgyMzUAA</bytes>
@@ -217,7 +217,7 @@
 					<object class="IBUIImageView" id="1044527549">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{220, 0}, {100, 100}}</string>
+						<string key="NSFrame">{{220, -21}, {100, 100}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -230,7 +230,9 @@
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="640746842"/>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</object>
@@ -429,11 +431,11 @@
 					<string>UIScrollViewLosungViewController</string>
 					<string>UIResponder</string>
 					<string>LosungView</string>
-					<string>{{408, -22}, {320, 480}}</string>
+					<string>{{408, 0}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABB8AAAwsQAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDXAAAwpoAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -446,7 +448,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAwvgAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABBAAAAwxsAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -803,7 +805,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{320, 115}</string>
-				<string>{100, 100}</string>
+				<string>{114, 116}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">123</string>

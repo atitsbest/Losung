@@ -52,7 +52,21 @@
 	
 
 	// Heute?
-	imageViewHeute.hidden = [self isSameDay:losung.datum likeDay:[NSDate date]] ? NO : YES; 
+	if ([self isSameDay:losung.datum likeDay:[NSDate date]]) {
+		CGRect old = imageViewHeute.frame;
+		imageViewHeute.frame = CGRectMake(old.size.width, -old.size.height, old.size.width*4, old.size.height*4);
+		imageViewHeute.alpha = 0.0;
+		imageViewHeute.hidden = NO;
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationDuration:.5];
+		[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:imageViewHeute cache:YES];
+		imageViewHeute.alpha = 1.0;
+		imageViewHeute.frame = old;
+		[UIView commitAnimations];
+	}
+	else {
+		imageViewHeute.hidden = YES;
+	}
 	
 	// WOCHENTAG
 	labelWeekday.text = weekday;
@@ -109,6 +123,9 @@
 	self.bounces = YES;
 }
 	 
+/**
+ * Sind zwei NSDate vom gleichen Tag?
+ */
 - (BOOL)isSameDay:(NSDate*)date1 likeDay:(NSDate*)date2 {
 	 NSCalendar* calendar = [NSCalendar currentCalendar];
 	 
