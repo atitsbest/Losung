@@ -18,37 +18,11 @@
 
 @synthesize index;
 
-// Fonts.
-static UIFont *weekdayFont = nil;
-static UIFont *datumFont = nil;
-static UIFont *stelleFont = nil;
-static UIFont *textFont = nil;
-
 /**
  * CTR
  */
 - (id)init {
     if ((self = [super init])) {
-        // Fonts.
-		if (weekdayFont == nil) { weekdayFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:180]; }
-		if (datumFont == nil) { datumFont = [UIFont fontWithName:@"Helvetica Neue" size:24]; }
-		if (stelleFont == nil) { stelleFont = [UIFont fontWithName:@"Helvetica Neue" size:18]; }
-		if (textFont == nil) { textFont = [UIFont fontWithName:@"Georgia" size:24]; }
-
-		// Labels.
-		labelWeekday = [[UILabel alloc] init];
-		labelDatum = [[UILabel alloc] init];
-		labelText1 = [[UILabel alloc] init]; 
-		labelStelle1 = [[UILabel alloc] init]; 
-		labelText2 = [[UILabel alloc] init]; 
-		labelStelle2 = [[UILabel alloc] init]; 
-
-		[self addSubview:labelWeekday];
-		[self addSubview:labelDatum];
-		[self addSubview:labelText1];
-		[self addSubview:labelText2];
-		[self addSubview:labelStelle1];
-		[self addSubview:labelStelle2];
 	}
     return self;
 }
@@ -149,12 +123,6 @@ static UIFont *textFont = nil;
 
 
 - (void)dealloc {
-	[labelWeekday release];
-	[labelDatum release];
-	[labelText1 release];
-	[labelText2 release];
-	[labelStelle1 release];
-	[labelStelle2 release];
 	[super dealloc];
 }
 
