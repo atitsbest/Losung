@@ -41,8 +41,6 @@
     [window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
-	return NO;
-
 	[self showSplashView];
 
     return YES;
@@ -76,7 +74,7 @@
 
 - (void)showSplashView {
     splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    splashView.image = [UIImage imageNamed:@"Default.png"];
+    splashView.image = [UIImage imageNamed:@"Default2.png"];
     [window addSubview:splashView];
     [window bringSubviewToFront:splashView];
     [UIView beginAnimations:nil context:nil];
@@ -84,7 +82,7 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
-    splashView.alpha = 0.0;
+	splashView.alpha = 0.0;
     splashView.frame = CGRectMake(-60, -60, 440, 600);
     [UIView commitAnimations];
 }

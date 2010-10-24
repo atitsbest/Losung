@@ -15,12 +15,14 @@
 
 	// Controls.
 	@protected
-	UILabel *labelWeekday;
-	UILabel *labelDatum;
-	UILabel *labelText1; 
-	UILabel *labelStelle1; 
-	UILabel *labelText2; 
-	UILabel *labelStelle2; 
+	IBOutlet UILabel *labelWeekday;
+	IBOutlet UILabel *labelDatum;
+	IBOutlet UILabel *labelText1; 
+	IBOutlet UILabel *labelStelle1; 
+	IBOutlet UILabel *labelText2; 
+	IBOutlet UILabel *labelStelle2; 
+	IBOutlet UIScrollView *scrollView;
+	IBOutlet UIImageView *imageViewHeute;
 }
 
 - (void)configureForIndex:(NSInteger)inIndex htmlTemplate:(NSString*)htmlTemplate;

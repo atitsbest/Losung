@@ -17,7 +17,10 @@
 	UIScrollView *pagingScrollView;
 	NSMutableSet *visiblePages;
 	NSMutableSet *recycledPages;
+	IBOutlet LosungView *losungView;
 }
+
+@property(nonatomic, retain) LosungView *losungView;
 
 - (void)tileLosungViews; // Nur die nötigen Losungen anzeigen.
 - (BOOL)isDisplayingLosungForIndex:(NSInteger)index; // Wird die Losung mit dem Index gerade angezeigt?

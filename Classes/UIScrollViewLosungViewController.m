@@ -14,6 +14,8 @@
 
 @implementation UIScrollViewLosungViewController
 
+@synthesize losungView;
+
 // Rotierung konfigurieren.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	// Wir unterbinden alle Rotationen.
@@ -107,7 +109,9 @@
 			// LosungView erstellen.
 			LosungView *page = [self dequeueRecycledPage];
 			if (page == nil) {
-				page = [[[LosungView alloc] init] autorelease];
+				//page = [[[LosungView alloc] init] autorelease];
+				[[NSBundle mainBundle] loadNibNamed:@"LosungView" owner:self options:nil];
+				page = self.losungView;
 			}
 			[page configureForIndex:index htmlTemplate:htmlTemplate];
 			[pagingScrollView addSubview:page];
@@ -165,6 +169,7 @@
 	[losungen release];
 	[visiblePages release];
 	[recycledPages release];
+	[losungView release];
 	[super dealloc];
 }
 
