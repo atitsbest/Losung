@@ -121,6 +121,9 @@
 	scrollView.contentSize = CGSizeMake(frame.size.width, height);
 	self.directionalLockEnabled = YES;
 	self.bounces = YES;
+    
+    // An den Anfang scrollen.
+    [scrollView setContentOffset:CGPointMake(0, 0)];
 }
 	 
 /**

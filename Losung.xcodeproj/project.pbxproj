@@ -19,7 +19,6 @@
 		6A1553A411F35136001B0B3E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1553A311F35136001B0B3E /* libsqlite3.dylib */; };
 		6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */; };
 		6A15540D11F36139001B0B3E /* ApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A15540C11F36139001B0B3E /* ApplicationContext.m */; };
-		6A3CC6B21257A27F00CFA35B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A3CC6B01257A27F00CFA35B /* icon.png */; };
 		6A3CC6B31257A27F00CFA35B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6A3CC6B11257A27F00CFA35B /* iTunesArtwork */; };
 		6A480044124F357A00BF6BF6 /* LosungView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A480043124F357A00BF6BF6 /* LosungView.m */; };
 		6A48FED011FCBF1000BF6BF6 /* losung.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A48FECF11FCBF1000BF6BF6 /* losung.html */; };
@@ -27,20 +26,24 @@
 		6ACAFCEA12744A1B003A7C17 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ACAFCE912744A1B003A7C17 /* header.png */; };
 		6ACAFD4312745308003A7C17 /* heute.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ACAFD4212745308003A7C17 /* heute.png */; };
 		6AD79BEF12510EA90000067B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79BEE12510EA90000067B /* Default.png */; };
+		6AF0356412775F4400495D02 /* icon-3g.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0356212775F4400495D02 /* icon-3g.png */; };
+		6AF0356512775F4400495D02 /* icon-4g.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0356312775F4400495D02 /* icon-4g.png */; };
+		6AF035681279D87F00495D02 /* icon-3g_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF035661279D87F00495D02 /* icon-3g_1.png */; };
+		6AF035691279D87F00495D02 /* icon-4g_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF035671279D87F00495D02 /* icon-4g_1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* UIScrollViewLosungAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewLosungAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* UIScrollViewLosungAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewLosungAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* UIScrollViewLosung.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollViewLosung.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Losung.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Losung.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* UIScrollViewLosungViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewLosungViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* UIScrollViewLosungViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewLosungViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* UIScrollViewLosung_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewLosung_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* Losung_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Losung_Prefix.pch; sourceTree = "<group>"; };
 		6A15538B11F34D19001B0B3E /* LosungRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LosungRepository.h; path = Repositories/LosungRepository.h; sourceTree = "<group>"; };
 		6A15538C11F34D19001B0B3E /* LosungRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LosungRepository.m; path = Repositories/LosungRepository.m; sourceTree = "<group>"; };
 		6A15538E11F34D27001B0B3E /* Losung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Losung.h; path = Models/Losung.h; sourceTree = "<group>"; };
@@ -49,7 +52,6 @@
 		6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = losungen.sqlite3; sourceTree = "<group>"; };
 		6A15540B11F36139001B0B3E /* ApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationContext.h; sourceTree = "<group>"; };
 		6A15540C11F36139001B0B3E /* ApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationContext.m; sourceTree = "<group>"; };
-		6A3CC6B01257A27F00CFA35B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		6A3CC6B11257A27F00CFA35B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		6A480042124F357A00BF6BF6 /* LosungView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LosungView.h; path = Views/LosungView.h; sourceTree = "<group>"; };
 		6A480043124F357A00BF6BF6 /* LosungView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LosungView.m; path = Views/LosungView.m; sourceTree = "<group>"; };
@@ -58,6 +60,10 @@
 		6ACAFCE912744A1B003A7C17 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		6ACAFD4212745308003A7C17 /* heute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heute.png; sourceTree = "<group>"; };
 		6AD79BEE12510EA90000067B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6AF0356212775F4400495D02 /* icon-3g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-3g.png"; sourceTree = "<group>"; };
+		6AF0356312775F4400495D02 /* icon-4g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-4g.png"; sourceTree = "<group>"; };
+		6AF035661279D87F00495D02 /* icon-3g_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-3g_1.png"; sourceTree = "<group>"; };
+		6AF035671279D87F00495D02 /* icon-4g_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-4g_1.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* UIScrollViewLosung-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UIScrollViewLosung-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +101,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* UIScrollViewLosung.app */,
+				1D6058910D05DD3D006BFB54 /* Losung.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,7 +121,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* UIScrollViewLosung_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* Losung_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -124,9 +130,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6AF035661279D87F00495D02 /* icon-3g_1.png */,
+				6AF035671279D87F00495D02 /* icon-4g_1.png */,
+				6AF0356212775F4400495D02 /* icon-3g.png */,
+				6AF0356312775F4400495D02 /* icon-4g.png */,
 				6ACAFD4212745308003A7C17 /* heute.png */,
 				6ACAFCE912744A1B003A7C17 /* header.png */,
-				6A3CC6B01257A27F00CFA35B /* icon.png */,
 				6A3CC6B11257A27F00CFA35B /* iTunesArtwork */,
 				6AD79BEE12510EA90000067B /* Default.png */,
 				6A48FECF11FCBF1000BF6BF6 /* losung.html */,
@@ -179,9 +188,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* UIScrollViewLosung */ = {
+		1D6058900D05DD3D006BFB54 /* Losung */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "UIScrollViewLosung" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Losung" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -191,9 +200,9 @@
 			);
 			dependencies = (
 			);
-			name = UIScrollViewLosung;
+			name = Losung;
 			productName = UIScrollViewLosung;
-			productReference = 1D6058910D05DD3D006BFB54 /* UIScrollViewLosung.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Losung.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +210,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "UIScrollViewLosung" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Losung" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -215,7 +224,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* UIScrollViewLosung */,
+				1D6058900D05DD3D006BFB54 /* Losung */,
 			);
 		};
 /* End PBXProject section */
@@ -229,11 +238,14 @@
 				6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */,
 				6A48FED011FCBF1000BF6BF6 /* losung.html in Resources */,
 				6AD79BEF12510EA90000067B /* Default.png in Resources */,
-				6A3CC6B21257A27F00CFA35B /* icon.png in Resources */,
 				6A3CC6B31257A27F00CFA35B /* iTunesArtwork in Resources */,
 				6ACAFCA91272D63E003A7C17 /* LosungView.xib in Resources */,
 				6ACAFCEA12744A1B003A7C17 /* header.png in Resources */,
 				6ACAFD4312745308003A7C17 /* heute.png in Resources */,
+				6AF0356412775F4400495D02 /* icon-3g.png in Resources */,
+				6AF0356512775F4400495D02 /* icon-4g.png in Resources */,
+				6AF035681279D87F00495D02 /* icon-3g_1.png in Resources */,
+				6AF035691279D87F00495D02 /* icon-4g_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,10 +277,12 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = UIScrollViewLosung_Prefix.pch;
+				GCC_PREFIX_HEADER = Losung_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "UIScrollViewLosung-Info.plist";
-				PRODUCT_NAME = UIScrollViewLosung;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = Losung;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -278,10 +292,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = UIScrollViewLosung_Prefix.pch;
+				GCC_PREFIX_HEADER = Losung_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "UIScrollViewLosung-Info.plist";
-				PRODUCT_NAME = UIScrollViewLosung;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = Losung;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -318,7 +334,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "UIScrollViewLosung" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Losung" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -327,7 +343,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "UIScrollViewLosung" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Losung" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
