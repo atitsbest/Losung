@@ -74,11 +74,12 @@
 
 - (void)showSplashView {
     splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    splashView.image = [UIImage imageNamed:@"Default2.png"];
+    splashView.image = [UIImage imageNamed:@"Default.png"];
     [window addSubview:splashView];
     [window bringSubviewToFront:splashView];
+    
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.5];
+    [UIView setAnimationDuration:.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
