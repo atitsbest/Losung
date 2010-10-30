@@ -19,7 +19,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+
+    // Add the view controller's view to the window and display.
+	[window makeKeyAndVisible];
+	
+    // Ladeindikator anzeigen.
+    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    splashView.image = [UIImage imageNamed:@"Default.png"];
+    [window addSubview:splashView];
+    [window bringSubviewToFront:splashView];
+    av = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+    av.center = [splashView center];
+    [splashView addSubview:av];
     
+    [NSThread detachNewThreadSelector:@selector(spinStart) toTarget:self withObject:nil];
+
 	[ApplicationContext current].databaseName = @"losungen.sqlite3";
 	
 	// Get the path to the documents directory and append the databaseName
@@ -37,12 +51,10 @@
 		}
 	];
 
-    // Add the view controller's view to the window and display.
+    [av removeFromSuperview];
     [window addSubview:viewController.view];
-	[window makeKeyAndVisible];
-	
 	[self showSplashView];
-
+    
     return YES;
 }
 
@@ -72,12 +84,11 @@
 	[viewController scrollToToday];
 }
 
+- (void)spinStart {
+    [av startAnimating];
+}
+
 - (void)showSplashView {
-    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    splashView.image = [UIImage imageNamed:@"Default.png"];
-    [window addSubview:splashView];
-    [window bringSubviewToFront:splashView];
-    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
