@@ -20,10 +20,10 @@
 		6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */; };
 		6A15540D11F36139001B0B3E /* ApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A15540C11F36139001B0B3E /* ApplicationContext.m */; };
 		6A480044124F357A00BF6BF6 /* LosungView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A480043124F357A00BF6BF6 /* LosungView.m */; };
-		6A7CAEE2127C7D9F00F12E2D /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE1127C7D9F00F12E2D /* iTunesArtwork.png */; };
 		6A7CAEE6127C7DD700F12E2D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE3127C7DD700F12E2D /* Default@2x.png */; };
 		6A7CAEE7127C7DD700F12E2D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE4127C7DD700F12E2D /* Icon.png */; };
 		6A7CAEE8127C7DD700F12E2D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE5127C7DD700F12E2D /* Icon@2x.png */; };
+		6A7CAEEA127C803B00F12E2D /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE9127C803B00F12E2D /* iTunesArtwork */; };
 		6ACAFCA91272D63E003A7C17 /* LosungView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACAFCA81272D63E003A7C17 /* LosungView.xib */; };
 		6ACAFCEA12744A1B003A7C17 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ACAFCE912744A1B003A7C17 /* header.png */; };
 		6ACAFD4312745308003A7C17 /* heute.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ACAFD4212745308003A7C17 /* heute.png */; };
@@ -52,10 +52,10 @@
 		6A15540C11F36139001B0B3E /* ApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationContext.m; sourceTree = "<group>"; };
 		6A480042124F357A00BF6BF6 /* LosungView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LosungView.h; path = Views/LosungView.h; sourceTree = "<group>"; };
 		6A480043124F357A00BF6BF6 /* LosungView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LosungView.m; path = Views/LosungView.m; sourceTree = "<group>"; };
-		6A7CAEE1127C7D9F00F12E2D /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		6A7CAEE3127C7DD700F12E2D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A7CAEE4127C7DD700F12E2D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6A7CAEE5127C7DD700F12E2D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		6A7CAEE9127C803B00F12E2D /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		6ACAFCA81272D63E003A7C17 /* LosungView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LosungView.xib; sourceTree = "<group>"; };
 		6ACAFCE912744A1B003A7C17 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		6ACAFD4212745308003A7C17 /* heute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heute.png; sourceTree = "<group>"; };
@@ -126,10 +126,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A7CAEE9127C803B00F12E2D /* iTunesArtwork */,
 				6A7CAEE3127C7DD700F12E2D /* Default@2x.png */,
 				6A7CAEE4127C7DD700F12E2D /* Icon.png */,
 				6A7CAEE5127C7DD700F12E2D /* Icon@2x.png */,
-				6A7CAEE1127C7D9F00F12E2D /* iTunesArtwork.png */,
 				6ACAFD4212745308003A7C17 /* heute.png */,
 				6ACAFCE912744A1B003A7C17 /* header.png */,
 				6AD79BEE12510EA90000067B /* Default.png */,
@@ -234,10 +234,10 @@
 				6ACAFCA91272D63E003A7C17 /* LosungView.xib in Resources */,
 				6ACAFCEA12744A1B003A7C17 /* header.png in Resources */,
 				6ACAFD4312745308003A7C17 /* heute.png in Resources */,
-				6A7CAEE2127C7D9F00F12E2D /* iTunesArtwork.png in Resources */,
 				6A7CAEE6127C7DD700F12E2D /* Default@2x.png in Resources */,
 				6A7CAEE7127C7DD700F12E2D /* Icon.png in Resources */,
 				6A7CAEE8127C7DD700F12E2D /* Icon@2x.png in Resources */,
+				6A7CAEEA127C803B00F12E2D /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stephan Meissner";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Losung_Prefix.pch;
@@ -289,6 +290,7 @@
 				INFOPLIST_FILE = "UIScrollViewLosung-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Losung;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6665D34-A784-4026-A6EE-671D2AEE85DC";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
