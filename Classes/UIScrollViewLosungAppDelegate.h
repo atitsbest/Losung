@@ -14,7 +14,7 @@
 	UIWindow *window;
     UIScrollViewLosungViewController *viewController;
     UIImageView *splashView;
-    UIActivityIndicatorView* av;
+//    UIActivityIndicatorView* av;
 }
 
 - (void)checkAndCopyDatabase;
