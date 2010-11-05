@@ -58,7 +58,7 @@
 		imageViewHeute.alpha = 0.0;
 		imageViewHeute.hidden = NO;
 		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationDuration:.5];
+        [UIView setAnimationDuration:.5];
 		[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:imageViewHeute cache:YES];
 		imageViewHeute.alpha = 1.0;
 		imageViewHeute.frame = old;
@@ -121,6 +121,24 @@
 	scrollView.contentSize = CGSizeMake(frame.size.width, height);
 	self.directionalLockEnabled = YES;
 	self.bounces = YES;
+    
+    scrollView.frame = CGRectMake(
+                                  -scrollView.frame.size.width, 
+                                  scrollView.frame.origin.y, 
+                                  scrollView.frame.size.width, 
+                                  scrollView.frame.size.height);
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone 
+                           forView:labelText1 
+                             cache:YES];
+    scrollView.frame = CGRectMake(
+                                  0, 
+                                  scrollView.frame.origin.y, 
+                                  scrollView.frame.size.width, 
+                                  scrollView.frame.size.height);
+    [UIView commitAnimations];
+
     
     // An den Anfang scrollen.
     [scrollView setContentOffset:CGPointMake(0, 0)];

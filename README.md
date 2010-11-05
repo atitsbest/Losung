@@ -1,3 +1,8 @@
+# Losung
+
+Gottes Wort für jeden Tag. _Mit Stil_. Für iPhone und iPod touch.
+
+
 # License
 
 (The MIT License)

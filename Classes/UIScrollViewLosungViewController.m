@@ -132,7 +132,7 @@
 											   inUnit:NSYearCalendarUnit 
 											  forDate:[NSDate date]] - 1;
 	[pagingScrollView setContentOffset:CGPointMake(CGRectGetWidth(pagingScrollViewFrame) * dayOfYear, 0) 
-							  animated:YES];
+							  animated:NO];
 }
 
 /**
