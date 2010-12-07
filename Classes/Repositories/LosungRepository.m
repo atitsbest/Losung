@@ -38,14 +38,14 @@ static NSDateFormatter* dateFormatter = nil;
 	return self;
 }
 
-/**
- * Liefert ein NSArray mit allen Losungen zurück.
- */
-- (NSArray*)getLosungen {
+//
+// Liefert ein NSArray mit allen Losungen für das übergebene Jahr zurück.
+//
+- (NSArray*)getLosungenForYear:(NSInteger)year {
 	NSMutableArray* result = [[[NSMutableArray alloc] init] autorelease];
 	
 	// SQL Query zusammenbauen.
-	NSString* sql = @"SELECT * FROM losungen";
+	NSString* sql = [NSString stringWithFormat:@"SELECT * FROM losungen WHERE datum like '%%%i%%'", year];
 	
 	// Statement vorbereiten.
 	sqlite3_stmt *statement;

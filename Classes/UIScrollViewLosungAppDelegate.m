@@ -19,8 +19,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-
-
 	[ApplicationContext current].databaseName = @"losungen.sqlite3";
 	
 	// Get the path to the documents directory and append the databaseName
@@ -30,9 +28,14 @@
 
 	[self checkAndCopyDatabase];
 
+	NSCalendar* calendar = [NSCalendar currentCalendar];
+	NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit 
+										  fromDate:[NSDate date]];
+	[ApplicationContext current].currentYear = [comp1 year];
+	
 	// Alle Losungen von der DB laden und sortieren.
 	LosungRepository *repository = [[[LosungRepository alloc] init] autorelease];
-	[ApplicationContext current].losungen = [[repository getLosungen] sortedArrayUsingComparator:
+	[ApplicationContext current].losungen = [[repository getLosungenForYear:[ApplicationContext current].currentYear] sortedArrayUsingComparator:
 		^(id a, id b) {
 			return [((Losung*)a).datum compare:((Losung*)b).datum];
 		}

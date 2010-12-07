@@ -13,7 +13,7 @@
 
 static ApplicationContext* current;
 
-@synthesize databaseName, databasePath, losungen;
+@synthesize databaseName, databasePath, losungen, currentYear;
 
 // Initialize the singleton instance if needed and return
 + (ApplicationContext *)current {

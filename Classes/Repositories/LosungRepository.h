@@ -12,7 +12,7 @@
 	sqlite3* db;
 }
 
-- (NSArray*) getLosungen;
+- (NSArray*) getLosungenForYear:(NSInteger)year;
 - (Losung*) getLosungForDate:(NSDate*)date;
 
 // TODO: private
