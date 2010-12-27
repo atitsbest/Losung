@@ -36,13 +36,13 @@
 	// Angezeigter Bereich.
 	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
 	// Position & Ausdehnung der akutellen Losung berechnen.
-	CGRect frame = CGRectMake((pagingScrollViewFrame.size.width*(index+1)), 20, pagingScrollViewFrame.size.width-0, pagingScrollViewFrame.size.height);
+	CGRect frame = CGRectMake((pagingScrollViewFrame.size.width*(index)), 20, pagingScrollViewFrame.size.width-0, pagingScrollViewFrame.size.height);
 
 	// Position & Ausdehnung für die View setzen.
 	self.frame = frame;
 	
 	// Losung für den übergebenen index.
-	Losung *losung = [[ApplicationContext current].losungen objectAtIndex:index];
+	Losung *losung = [[ApplicationContext current].losungen objectAtIndex:(index-1)];
 
 	// Name des aktuellen Wochentags ermitteln und davon nur die ersten beiden Buchstaben verwenden.
 	NSString *weekday = [NSDateFormatter localizedStringFromDate:losung.datum 

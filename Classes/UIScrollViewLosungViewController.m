@@ -48,12 +48,14 @@
 - (void)startupHideAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 	[splashView removeFromSuperview];
     [splashView release];
+	splashView = nil;
 	[pagingScrollView.window bringSubviewToFront:pagingScrollView];
 
 }
 
 - (void)startupShowAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 	[self setupForYear:[ApplicationContext current].currentYear + 1];
+//	[self scrollToDayOfYear:1];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:pagingScrollView.window cache:YES];
@@ -64,8 +66,21 @@
     [UIView commitAnimations];
 }
 
-- (void)changeYear:(NSInteger)direction {
-	[self setupForYear:[ApplicationContext current].currentYear + direction];
+- (void)changeYear:(NSString*)direction {
+	if (splashView != nil) return;
+    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    splashView.image = [UIImage imageNamed:@"Default.png"];
+	splashView.alpha = 0.0;
+    [pagingScrollView.window addSubview:splashView];
+    [pagingScrollView.window bringSubviewToFront:splashView];
+    [UIView beginAnimations:nil context:direction];
+    [UIView setAnimationDuration:.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:pagingScrollView.window cache:YES];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(startupShowAnimationDone:finished:context:)];
+	splashView.alpha = 1.0;
+    [UIView commitAnimations];
+//	[self setupForYear:[ApplicationContext current].currentYear + direction];
 }
 
 
@@ -81,7 +96,7 @@
 	
 	// Sicher gehen dass wir auf keiner Seite über die Grenzen hinausschießen.
 	firstNeededPageIndex = MAX(0, firstNeededPageIndex);
-	lastNeededPageIndex = MIN([[ApplicationContext current].losungen count], lastNeededPageIndex);
+	lastNeededPageIndex = MIN([[ApplicationContext current].losungen count] + 1, lastNeededPageIndex);
 	
 	// Seiten die nicht mehr sichtbar sind aus der View entfernen und recyclen.
 	for(LosungView *page in visiblePages) {
@@ -99,11 +114,11 @@
 	// Jetzt werden die sichtbaren View erstellt.
 	for (int index=firstNeededPageIndex; index<=lastNeededPageIndex; index+=1) {
 		if (![self isDisplayingLosungForIndex:index]) {
-			if (index >= [[ApplicationContext current].losungen count]) {
-				[self changeYear:+1];
+			if (index == ([[ApplicationContext current].losungen count] + 1)) {
+				[self changeYear:@"1"];
 			}
 			else if (index == 0) {
-				[self changeYear:-1];
+				[self changeYear:@"-1"];
 			}
 			else {
 				// LosungView erstellen.
