@@ -10,8 +10,6 @@
 
 @implementation LosungRepository
 
-// Brauchen wir um aus Strings NSDate zu machen und umgekehrt. Das Format bleibt für beide Fälle gleich.
-static NSDateFormatter* dateFormatter = nil;
 
 /**
  * CTR
@@ -24,16 +22,8 @@ static NSDateFormatter* dateFormatter = nil;
 		// TODO: Fehlerbehandlung.
 		sqlite3_open([[ApplicationContext current].databasePath UTF8String], &db);
 		
-		// Formatter 1x erstellen (statisch).
-		if (dateFormatter == nil) {
-			dateFormatter = [[NSDateFormatter alloc] init];
-			[dateFormatter setDateFormat:@"dd.MM.yyyy"];
-		}
-		else {
-			// So klappts auch mit der statischen Variable.
-			[dateFormatter retain];
-		}
-
+		dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"dd.MM.yyyy"];
 	}
 	return self;
 }

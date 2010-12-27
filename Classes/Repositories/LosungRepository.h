@@ -10,6 +10,8 @@
 @private
 	// Zugriff auf die SQLite3 Datenbank.
 	sqlite3* db;
+	// Brauchen wir um aus Strings NSDate zu machen und umgekehrt. Das Format bleibt für beide Fälle gleich.
+	NSDateFormatter* dateFormatter;
 }
 
 - (NSArray*) getLosungenForYear:(NSInteger)year;

@@ -33,14 +33,6 @@
 										  fromDate:[NSDate date]];
 	[ApplicationContext current].currentYear = [comp1 year];
 	
-	// Alle Losungen von der DB laden und sortieren.
-	LosungRepository *repository = [[[LosungRepository alloc] init] autorelease];
-	[ApplicationContext current].losungen = [[repository getLosungenForYear:[ApplicationContext current].currentYear] sortedArrayUsingComparator:
-		^(id a, id b) {
-			return [((Losung*)a).datum compare:((Losung*)b).datum];
-		}
-	];
-
     // Add the view controller's view to the window and display.
 	[window makeKeyAndVisible];
     [window addSubview:viewController.view];

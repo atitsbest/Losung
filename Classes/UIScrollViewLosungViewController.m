@@ -26,29 +26,11 @@
 	// Init.
 	visiblePages = [[NSMutableSet alloc] init];
 	recycledPages = [[NSMutableSet alloc] init];
-	
-	// Vorlage für die Losung laden.
-	NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString *templatePath = [NSString stringWithFormat:@"%@/losung.html", resourcePath];
-    NSStringEncoding *encoding = nil;
-	NSError *error = nil;
-	htmlTemplate = [[NSString stringWithContentsOfFile:templatePath usedEncoding:encoding error:&error] retain];
-	// TODO: Error überprüfen.
+	pagingScrollView.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewDidLoad {
-	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
-	pagingScrollView = [[UIScrollView alloc] initWithFrame:pagingScrollViewFrame];
-	pagingScrollView.pagingEnabled = YES;
-	pagingScrollView.contentSize = CGSizeMake(
-											  pagingScrollViewFrame.size.width * [[ApplicationContext current].losungen count], 
-											  pagingScrollViewFrame.size.height);
-	pagingScrollView.backgroundColor = [UIColor whiteColor];
-	pagingScrollView.delegate = self;
-	self.view = pagingScrollView;
-	
-	[self tileLosungViews];
-
+	[self setupForYear:[ApplicationContext current].currentYear];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -62,26 +44,37 @@
 	[self tileLosungViews];
 }
 
-/**
- * Berührung hat geendet.
- */
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	for(UITouch *touch in touches) {
-		if (touch.tapCount >= 2) {
-			[self scrollToToday];
-		}
-	}
+
+- (void)startupHideAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+	[splashView removeFromSuperview];
+    [splashView release];
+	[pagingScrollView.window bringSubviewToFront:pagingScrollView];
+
 }
+
+- (void)startupShowAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+	[self setupForYear:[ApplicationContext current].currentYear + 1];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:pagingScrollView.window cache:YES];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(startupHideAnimationDone:finished:context:)];
+	splashView.alpha = 0.0;
+    splashView.frame = CGRectMake(-60, -60, 440, 600);
+    [UIView commitAnimations];
+}
+
+- (void)changeYear:(NSInteger)direction {
+	[self setupForYear:[ApplicationContext current].currentYear + direction];
+}
+
+
 
 /**
  * Nur die nötigen Losungen anzeigen.
  */
 - (void)tileLosungViews {
 	// Welche Seiten sollen sichtbar sein?
-	// INFO: UIWebView hat ein Problem mit Scrollviews. UIWebView zeichnet seinen Inhalt erst dann neu
-	//		 wenn die Scrollview fertig "gescrollt" hat. Dann ist aber schon die WebView mit dem falschen
-	//		 Inhalt sichtbar. Damit das nicht passiert, erzeugen wir immer zwei WebViews, jeweils rechts
-	//		 und links die (noch) nicht sichtbar sind.
 	CGRect visibleBounds = pagingScrollView.bounds; // Alle 356 Tage.
 	int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
 	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
@@ -106,16 +99,24 @@
 	// Jetzt werden die sichtbaren View erstellt.
 	for (int index=firstNeededPageIndex; index<=lastNeededPageIndex; index+=1) {
 		if (![self isDisplayingLosungForIndex:index]) {
-			// LosungView erstellen.
-			LosungView *page = [self dequeueRecycledPage];
-			if (page == nil) {
-				//page = [[[LosungView alloc] init] autorelease];
-				[[NSBundle mainBundle] loadNibNamed:@"LosungView" owner:self options:nil];
-				page = self.losungView;
+			if (index >= [[ApplicationContext current].losungen count]) {
+				[self changeYear:+1];
 			}
-			[page configureForIndex:index htmlTemplate:htmlTemplate];
-			[pagingScrollView addSubview:page];
-			[visiblePages addObject:page];
+			else if (index == 0) {
+				[self changeYear:-1];
+			}
+			else {
+				// LosungView erstellen.
+				LosungView *page = [self dequeueRecycledPage];
+				if (page == nil) {
+					[[NSBundle mainBundle] loadNibNamed:@"LosungView" owner:self options:nil];
+					page = self.losungView;
+				}
+				[page configureForIndex:index];
+				[pagingScrollView addSubview:page];
+				[pagingScrollView bringSubviewToFront:page];
+				[visiblePages addObject:page];
+			}
 		}
 	}
 									
@@ -125,12 +126,21 @@
  * Scrollt die Losungen zum heutigen Tag.
  */
 - (void) scrollToToday {
-	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
 	// Zum aktuellen Tag scrollen.
 	NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
 	NSUInteger dayOfYear =[gregorian ordinalityOfUnit:NSDayCalendarUnit
 											   inUnit:NSYearCalendarUnit 
-											  forDate:[NSDate date]] - 1;
+											  forDate:[NSDate date]];
+	// TODO: Entfernen!
+	dayOfYear = 363;
+	[self scrollToDayOfYear:dayOfYear];
+}
+
+/**
+ * Scrollt die Losungen zum angegebenen Tag.
+ */
+- (void) scrollToDayOfYear:(NSUInteger)dayOfYear {
+	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
 	[pagingScrollView setContentOffset:CGPointMake(CGRectGetWidth(pagingScrollViewFrame) * dayOfYear, 0) 
 							  animated:NO];
 }
@@ -161,11 +171,45 @@
 	return page;
 }
 
+- (void)setupForYear:(NSInteger)year {
+	[ApplicationContext current].currentYear = year;
+	
+	// Angezeigte Losungen von der Scrollview entfernen.
+	for(LosungView *page in visiblePages) {
+		[recycledPages addObject:page];
+		[page removeFromSuperview];
+	}
+	
+	// Alle Losungen von der DB laden und sortieren.
+	LosungRepository *repository = [[[LosungRepository alloc] init] autorelease];
+	[ApplicationContext current].losungen = [[repository getLosungenForYear:[ApplicationContext current].currentYear] sortedArrayUsingComparator:
+		 ^(id a, id b) {
+			 return [((Losung*)a).datum compare:((Losung*)b).datum];
+		 }
+	 ];
+	
+	// Scrollview initialisieren, so dass die Losungen eines ganzen Jahres drauf passen.
+	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
+	pagingScrollView = [[UIScrollView alloc] initWithFrame:pagingScrollViewFrame];
+	pagingScrollView.pagingEnabled = YES;
+	pagingScrollView.contentSize = CGSizeMake(
+											  pagingScrollViewFrame.size.width * ([[ApplicationContext current].losungen count] + 2), 
+											  pagingScrollViewFrame.size.height);
+	pagingScrollView.backgroundColor = [UIColor whiteColor];
+	pagingScrollView.delegate = self;
+	self.view = pagingScrollView;
+	
+	if (splashView != nil) {
+		[pagingScrollView.window bringSubviewToFront:splashView];
+	}
+	[pagingScrollView setContentOffset:CGPointMake(CGRectGetWidth(pagingScrollViewFrame) * 1, 0) 
+							  animated:NO];
+}
+
 
 // DTR
 - (void) dealloc
 {
-	[htmlTemplate release];
 	[losungen release];
 	[visiblePages release];
 	[recycledPages release];

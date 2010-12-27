@@ -25,7 +25,7 @@
 	IBOutlet UIImageView *imageViewHeute;
 }
 
-- (void)configureForIndex:(NSInteger)inIndex htmlTemplate:(NSString*)htmlTemplate;
+- (void)configureForIndex:(NSInteger)inIndex;
 - (BOOL)isSameDay:(NSDate*)date1 likeDay:(NSDate*)date2;
 
 @property (nonatomic, assign) NSInteger index;

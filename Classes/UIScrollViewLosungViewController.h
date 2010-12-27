@@ -12,9 +12,9 @@
 
 @interface UIScrollViewLosungViewController : UIViewController <UIScrollViewDelegate> {
 	LosungRepository *losungen;
-	NSString *htmlTemplate;
 	
 	UIScrollView *pagingScrollView;
+	UIImageView *splashView;
 	NSMutableSet *visiblePages;
 	NSMutableSet *recycledPages;
 	IBOutlet LosungView *losungView;
@@ -24,7 +24,9 @@
 
 - (void)tileLosungViews; // Nur die nötigen Losungen anzeigen.
 - (BOOL)isDisplayingLosungForIndex:(NSInteger)index; // Wird die Losung mit dem Index gerade angezeigt?
-- (void) scrollToToday;
+- (void)scrollToToday;
+- (void)scrollToDayOfYear:(NSUInteger)dayOfYear;
+- (void)setupForYear:(NSInteger)year;
 - (LosungView*)dequeueRecycledPage;
 
 @end

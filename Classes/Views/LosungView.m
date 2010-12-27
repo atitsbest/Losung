@@ -30,13 +30,13 @@
 /**
  * View configurieren.
  */
-- (void)configureForIndex:(NSInteger)inIndex htmlTemplate:(NSString*)htmlTemplate {
+- (void)configureForIndex:(NSInteger)inIndex {
 	index = inIndex;
 
 	// Angezeigter Bereich.
 	CGRect pagingScrollViewFrame = [[UIScreen mainScreen] bounds];
 	// Position & Ausdehnung der akutellen Losung berechnen.
-	CGRect frame = CGRectMake(0+(pagingScrollViewFrame.size.width*index), 20, pagingScrollViewFrame.size.width-0, pagingScrollViewFrame.size.height);
+	CGRect frame = CGRectMake((pagingScrollViewFrame.size.width*(index+1)), 20, pagingScrollViewFrame.size.width-0, pagingScrollViewFrame.size.height);
 
 	// Position & Ausdehnung für die View setzen.
 	self.frame = frame;
@@ -122,23 +122,23 @@
 	self.directionalLockEnabled = YES;
 	self.bounces = YES;
     
-    scrollView.frame = CGRectMake(
+/*    scrollView.frame = CGRectMake(
                                   -scrollView.frame.size.width, 
                                   scrollView.frame.origin.y, 
                                   scrollView.frame.size.width, 
                                   scrollView.frame.size.height);
-    [UIView beginAnimations:nil context:nil];
+*//*    [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone 
                            forView:labelText1 
                              cache:YES];
-    scrollView.frame = CGRectMake(
+  */  /*scrollView.frame = CGRectMake(
                                   0, 
                                   scrollView.frame.origin.y, 
                                   scrollView.frame.size.width, 
                                   scrollView.frame.size.height);
-    [UIView commitAnimations];
-
+    /*[UIView commitAnimations];
+*/
     
     // An den Anfang scrollen.
     [scrollView setContentOffset:CGPointMake(0, 0)];
