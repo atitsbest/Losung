@@ -54,8 +54,13 @@
 }
 
 - (void)startupShowAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-	[self setupForYear:[ApplicationContext current].currentYear + 1];
-//	[self scrollToDayOfYear:1];
+	NSNumber *direction = (NSNumber*)context;
+	NSInteger year = [ApplicationContext current].currentYear + [direction intValue];
+	[self setupForYear:year];
+	if ([direction intValue] == -1) {
+		[self scrollToDayOfYear:365];
+	}
+	[direction release];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:pagingScrollView.window cache:YES];
@@ -66,14 +71,14 @@
     [UIView commitAnimations];
 }
 
-- (void)changeYear:(NSString*)direction {
+- (void)changeYear:(NSInteger)direction {
 	if (splashView != nil) return;
     splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     splashView.image = [UIImage imageNamed:@"Default.png"];
 	splashView.alpha = 0.0;
     [pagingScrollView.window addSubview:splashView];
     [pagingScrollView.window bringSubviewToFront:splashView];
-    [UIView beginAnimations:nil context:direction];
+    [UIView beginAnimations:nil context:[[NSNumber numberWithInt:direction] retain]];
     [UIView setAnimationDuration:.7];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:pagingScrollView.window cache:YES];
     [UIView setAnimationDelegate:self];
@@ -115,10 +120,10 @@
 	for (int index=firstNeededPageIndex; index<=lastNeededPageIndex; index+=1) {
 		if (![self isDisplayingLosungForIndex:index]) {
 			if (index == ([[ApplicationContext current].losungen count] + 1)) {
-				[self changeYear:@"1"];
+				[self changeYear:+1];
 			}
 			else if (index == 0) {
-				[self changeYear:@"-1"];
+				[self changeYear:-1];
 			}
 			else {
 				// LosungView erstellen.
