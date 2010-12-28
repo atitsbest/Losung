@@ -25,6 +25,7 @@
 - (void)tileLosungViews; // Nur die nötigen Losungen anzeigen.
 - (BOOL)isDisplayingLosungForIndex:(NSInteger)index; // Wird die Losung mit dem Index gerade angezeigt?
 - (void)scrollToToday;
+- (void)scrollToLastDayOfYear:(NSUInteger)year;
 - (void)scrollToDayOfYear:(NSUInteger)dayOfYear;
 - (void)setupForYear:(NSInteger)year;
 - (LosungView*)dequeueRecycledPage;

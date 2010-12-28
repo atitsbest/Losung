@@ -58,7 +58,7 @@
 	NSInteger year = [ApplicationContext current].currentYear + [direction intValue];
 	[self setupForYear:year];
 	if ([direction intValue] == -1) {
-		[self scrollToDayOfYear:365];
+		[self scrollToLastDayOfYear:year];
 	}
 	[direction release];
     [UIView beginAnimations:nil context:nil];
@@ -151,9 +151,28 @@
 	NSUInteger dayOfYear =[gregorian ordinalityOfUnit:NSDayCalendarUnit
 											   inUnit:NSYearCalendarUnit 
 											  forDate:[NSDate date]];
-	// TODO: Entfernen!
-	dayOfYear = 363;
 	[self scrollToDayOfYear:dayOfYear];
+}
+
+/**
+ * Scrollt die Losungen zum letzten Tag des Jahres.
+ */
+- (void) scrollToLastDayOfYear:(NSUInteger)year {
+	// 31. 12. xxxx
+	NSDateFormatter *formatter = [[NSDateFormatter alloc]init]; 
+	[formatter setDateFormat:@"yyyy-MM-dd"];
+	NSString *dateString = [NSString stringWithFormat:@"%i-12-31", year];
+	NSDate *date = [formatter dateFromString:dateString];
+
+	// Zum aktuellen Tag scrollen.
+	NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+	NSUInteger dayOfYear =[gregorian ordinalityOfUnit:NSDayCalendarUnit
+											   inUnit:NSYearCalendarUnit 
+											  forDate:date];
+	[self scrollToDayOfYear:dayOfYear];
+
+	// Aufräumen.
+	[formatter release];
 }
 
 /**
