@@ -14,7 +14,7 @@
 
 @implementation UIScrollViewLosungViewController
 
-@synthesize losungView;
+@synthesize losungView, firstYearView, lastYearView;
 
 // Rotierung konfigurieren.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -22,11 +22,22 @@
 	return NO;
 }
 
+/*- (void)handleDoubleTap:(UIGestureRecognizer*)sender {
+	[self scrollToToday];
+}*/
+
 - (void)loadView {
 	// Init.
 	visiblePages = [[NSMutableSet alloc] init];
 	recycledPages = [[NSMutableSet alloc] init];
-	pagingScrollView.backgroundColor = [UIColor blackColor];
+
+    // Doppel-Tab überprüfen.
+/*    UITapGestureRecognizer* doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                action:@selector(handleDoubleTap)];
+    [doubleTap setDelaysTouchesBegan : YES];
+    [doubleTap setNumberOfTapsRequired : 2];
+    [self.view addGestureRecognizer : doubleTap];
+    [doubleTap release];*/
 }
 
 - (void)viewDidLoad {
@@ -57,7 +68,7 @@
 	NSNumber *direction = (NSNumber*)context;
 	NSInteger year = [ApplicationContext current].currentYear + [direction intValue];
 	[self setupForYear:year];
-	if ([direction intValue] == -1) {
+	if ([direction intValue] == 1) {
 		[self scrollToLastDayOfYear:year];
 	}
 	[direction release];
@@ -120,10 +131,34 @@
 	for (int index=firstNeededPageIndex; index<=lastNeededPageIndex; index+=1) {
 		if (![self isDisplayingLosungForIndex:index]) {
 			if (index == ([[ApplicationContext current].losungen count] + 1)) {
-				[self changeYear:+1];
+				if ([ApplicationContext current].currentYear < 2011) { 
+					[self changeYear:+1]; 
+				}
+				else {
+					if (self.lastYearView == nil) {
+						[[NSBundle mainBundle] loadNibNamed:@"LastYearView" owner:self options:nil];
+						// Position & Ausdehnung der akutellen Losung berechnen.
+						self.lastYearView.frame = CGRectMake(pagingScrollView.contentSize.width-self.lastYearView.frame.size.width, 
+															 0, 
+															 self.lastYearView.frame.size.width, 
+															 self.lastYearView.frame.size.height);
+						[pagingScrollView addSubview:self.lastYearView];
+					}
+					[pagingScrollView bringSubviewToFront:self.lastYearView];
+				}
 			}
 			else if (index == 0) {
-				[self changeYear:-1];
+				if ([ApplicationContext current].currentYear > 2010) { 
+					[self changeYear:-1]; 
+				}
+				else {
+					if (self.firstYearView == nil) {
+						[[NSBundle mainBundle] loadNibNamed:@"FirstYearView" owner:self options:nil];
+						[pagingScrollView addSubview:self.firstYearView];
+					}
+					[pagingScrollView bringSubviewToFront:self.firstYearView];
+				}
+
 			}
 			else {
 				// LosungView erstellen.

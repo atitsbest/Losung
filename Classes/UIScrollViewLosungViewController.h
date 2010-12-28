@@ -18,9 +18,13 @@
 	NSMutableSet *visiblePages;
 	NSMutableSet *recycledPages;
 	IBOutlet LosungView *losungView;
+	IBOutlet UIView *firstYearView;
+	IBOutlet UIView *lastYearView;
 }
 
 @property(nonatomic, retain) LosungView *losungView;
+@property(nonatomic, retain) UIView *firstYearView;
+@property(nonatomic, retain) UIView *lastYearView;
 
 - (void)tileLosungViews; // Nur die nötigen Losungen anzeigen.
 - (BOOL)isDisplayingLosungForIndex:(NSInteger)index; // Wird die Losung mit dem Index gerade angezeigt?

@@ -20,6 +20,8 @@
 		6A1553F711F35D9E001B0B3E /* losungen.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A1553F611F35D9E001B0B3E /* losungen.sqlite3 */; };
 		6A15540D11F36139001B0B3E /* ApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A15540C11F36139001B0B3E /* ApplicationContext.m */; };
 		6A480044124F357A00BF6BF6 /* LosungView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A480043124F357A00BF6BF6 /* LosungView.m */; };
+		6A765C9F12C9F5D100FE30DC /* FirstYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A765C9E12C9F5D100FE30DC /* FirstYearView.xib */; };
+		6A765CC112CA00E300FE30DC /* LastYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A765CC012CA00E300FE30DC /* LastYearView.xib */; };
 		6A7CAEE6127C7DD700F12E2D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE3127C7DD700F12E2D /* Default@2x.png */; };
 		6A7CAEE7127C7DD700F12E2D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE4127C7DD700F12E2D /* Icon.png */; };
 		6A7CAEE8127C7DD700F12E2D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7CAEE5127C7DD700F12E2D /* Icon@2x.png */; };
@@ -52,6 +54,8 @@
 		6A15540C11F36139001B0B3E /* ApplicationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationContext.m; sourceTree = "<group>"; };
 		6A480042124F357A00BF6BF6 /* LosungView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LosungView.h; path = Views/LosungView.h; sourceTree = "<group>"; };
 		6A480043124F357A00BF6BF6 /* LosungView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LosungView.m; path = Views/LosungView.m; sourceTree = "<group>"; };
+		6A765C9E12C9F5D100FE30DC /* FirstYearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstYearView.xib; sourceTree = "<group>"; };
+		6A765CC012CA00E300FE30DC /* LastYearView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastYearView.xib; sourceTree = "<group>"; };
 		6A7CAEE3127C7DD700F12E2D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A7CAEE4127C7DD700F12E2D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6A7CAEE5127C7DD700F12E2D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* UIScrollViewLosung-Info.plist */,
 				6ACAFCA81272D63E003A7C17 /* LosungView.xib */,
+				6A765C9E12C9F5D100FE30DC /* FirstYearView.xib */,
+				6A765CC012CA00E300FE30DC /* LastYearView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 				6A7CAEE7127C7DD700F12E2D /* Icon.png in Resources */,
 				6A7CAEE8127C7DD700F12E2D /* Icon@2x.png in Resources */,
 				6A7CAEEA127C803B00F12E2D /* iTunesArtwork in Resources */,
+				6A765C9F12C9F5D100FE30DC /* FirstYearView.xib in Resources */,
+				6A765CC112CA00E300FE30DC /* LastYearView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +276,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Losung_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -287,7 +295,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stephan Meissner";
 				COPY_PHASE_STRIP = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Losung_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -314,7 +322,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -333,7 +341,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
