@@ -26,8 +26,6 @@
 	NSString *documentsDir = [documentPaths objectAtIndex:0];
 	[ApplicationContext current].databasePath = [documentsDir stringByAppendingPathComponent:[ApplicationContext current].databaseName];
 
-	[self checkAndCopyDatabase];
-
 	NSCalendar* calendar = [NSCalendar currentCalendar];
 	NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit 
 										  fromDate:[NSDate date]];
@@ -39,25 +37,6 @@
 	[self showSplashView];
     
     return YES;
-}
-
-/**
- * Wenn die Datenbank noch nicht auf dem iPhone ist, dann wird sie dorthin kopiert.
- */
-- (void)checkAndCopyDatabase {
-	// Create a FileManager object, we will use this to check the status
-	// of the database and to copy it over if required
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-	// Check if the database has already been created in the users filesystem
-	if (![fileManager fileExistsAtPath:[ApplicationContext current].databasePath]) {
-		// Get the path to the database in the application package
-		NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[ApplicationContext current].databaseName];
-		
-		// Copy the database from the package to the users filesystem
-		[fileManager copyItemAtPath:databasePathFromApp 
-							 toPath:[ApplicationContext current].databasePath error:nil];
-	}
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

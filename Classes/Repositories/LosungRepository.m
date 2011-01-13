@@ -20,7 +20,8 @@
 	if (self != nil) {
 		db = nil;
 		// TODO: Fehlerbehandlung.
-		sqlite3_open([[ApplicationContext current].databasePath UTF8String], &db);
+		NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[ApplicationContext current].databaseName];
+		sqlite3_open([databasePathFromApp UTF8String], &db);
 		
 		dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateFormat:@"dd.MM.yyyy"];

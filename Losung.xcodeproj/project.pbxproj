@@ -334,7 +334,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Stephan Meissner (4AB2CK6Y4W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Stephan Meissner (4AB2CK6Y4W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stephan Meissner";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -342,7 +342,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78257AD9-BEED-4D90-8D95-3D05F0C225D2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6665D34-A784-4026-A6EE-671D2AEE85DC";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
