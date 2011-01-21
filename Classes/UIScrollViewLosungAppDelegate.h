@@ -17,7 +17,6 @@
 	NSInteger currentYear;
 }
 
-- (void)checkAndCopyDatabase;
 // TODO: @Private
 - (void)showSplashView;
 - (void)startupAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
