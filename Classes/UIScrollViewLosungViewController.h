@@ -42,5 +42,6 @@
 - (void)setupForYear:(NSInteger)year;
 - (LosungView*)dequeueRecycledPage;
 
+
 @end
 

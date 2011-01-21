@@ -30,9 +30,7 @@
 	return NO;
 }
 
-/*- (void)handleDoubleTap:(UIGestureRecognizer*)sender {
-	[self scrollToToday];
-}*/
+- (BOOL)canBecomeFirstResponder { return YES; }
 
 - (void)loadView {
 	// Init.
@@ -42,14 +40,6 @@
 	// Kalender erstellen.
 	self.calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	[self.calender setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
-
-    // Doppel-Tab überprüfen.
-/*    UITapGestureRecognizer* doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self 
-                                                                                action:@selector(handleDoubleTap)];
-    [doubleTap setDelaysTouchesBegan : YES];
-    [doubleTap setNumberOfTapsRequired : 2];
-    [self.view addGestureRecognizer : doubleTap];
-    [doubleTap release];*/
 }
 
 - (void)viewDidLoad {
@@ -60,11 +50,25 @@
 	[self scrollToToday];
 }
 
-/**
- * Es wurde gescrollt.
- */
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	// Wichtig, damit wir der Schüttelbewegung auch mitbekommt.
+	[self becomeFirstResponder];
+}
+
+//
+// Es wurde gescrollt.
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	[self tileLosungViews];
+}
+
+//
+// Das iPhone wurde bewegt.
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	// Geschüttelt?
+	if (event.type == UIEventSubtypeMotionShake) {
+		[self scrollToToday];
+	}
 }
 
 
